@@ -48,3 +48,26 @@ Code sửa lại:
     </article>
 </main>
 <footer>© 2026 ShopTLU</footer>
+```
+
+
+## Câu A3: (Nguồn tham chiếu: 04_visible_part_html.md)
+Kết quả là:
+```html
+[Hộp 1]
+Text A Text B
+[Hộp 2]
+Text C Text D
+[Hộp 3]
+```
+-`<div>` là 1 thẻ thuộc Block element luôn bắt đầu trên một dòng mới và chiếm toàn bộ chiều ngang của trang. Do đó, Hộp 1, Hộp 2, và Hộp 3 mỗi cái nằm riêng biệt trên một dòng.
+-`<span>` và `<strong>` là 2 thẻ thuộc Inline element nên chúng sẽ nằm cùng một hàng với nhau khi kết thúc.
+
+## Câu A4: (Nguồn tham chiếu: 05_tables_hyperlinks.md )
+- `<thead>` Chứa các hàng tiêu đề , xác định tên gọi hoặc ý nghĩa cho các cột bên dưới nằm ở phần đầu.
+- `<tbody>` Chứa nội dung dữ liệu chính của bảng. Đây là phần hiển thị các bản ghi chi tiết nằm ở phần giữa.
+- `<tfoot>` Chứa các thông tin tổng kết, thống kê nằm ở cuối bảng.
+** Lý do không dùng bảng để tạo bố cục trang web:**
+- Bảng có cấu trúc cứng nhắc, rất khó để tự động co giãn hoặc nhảy dòng linh hoạt trên màn hình điện thoại so với CSS Grid/Flexbox.
+- Thẻ `<table>` chỉ dành cho dữ liệu bảng (so sánh, thống kê). Dùng làm layout khiến Google Bot không hiểu được cấu trúc nội dung.
+- Tốc độ load sẽ chậm vì trình duyệt phải đọc xong toàn bộ mã nguồn của thẻ bảng mới có thể tính toán và hiển thị giao diện
