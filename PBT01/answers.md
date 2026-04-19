@@ -218,6 +218,8 @@ Ví dụ: khi bạn dùng `<nav aria-label="breadcrumb">` kết hợp `<ol>` cho
 
 Tuy vậy, `<div>` vẫn rất cần thiết. Nó phù hợp khi bạn chỉ cần group các phần tử để styling hoặc layout, ví dụ chia grid, flexbox, hoặc bọc nhiều thành phần không mang ý nghĩa nội dung cụ thể.
 
+link videos trong google drive: (https://drive.google.com/file/d/13PEAqO-9L34oCQigngswjw9R7Im3bYDg/view?usp=sharing)
+
 
 
 
