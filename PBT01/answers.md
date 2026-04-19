@@ -111,9 +111,101 @@ Lỗi 11: Dòng 44 — Thẻ `<footer>` chưa được đóng — Cách sửa: T
 - Thẻ `<div id="main">` Nên dùng thẻ `<main>` thay vì `<div id="main">` vì đây là nội dung chính của trang.
 - Thẻ `<div id="modal">` - Nên dùng thẻ `<dialog>` thay vì `<div id="modal">` vì đây là hộp thoại/modal.
 2. Trong tab Elements shopee không có `<table>` nào.
-3.`<form>` trên trang 
+3. `<form>` trên trang 
 - From đó có Action: /search và Method: get  
 - Input text và Input button được sử dụng
+
+# PHẦN C — SUY LUẬN
+
+## Câu C1:
+```html
+<!DOCTYPE html>
+<html lang="vi">
+<head> <!-- head chứa thông tin cấu hình trang -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Chi Tiết Sản Phẩm</title>
+</head>
+<body> <!-- body chứa toàn bộ nội dung hiển thị -->
+
+    <header><!-- header dùng cho phần đầu trang -->
+        <h1>Logo Shop</h1> <!-- h1 là tiêu đề chính của website -->
+        
+        <nav> <!-- nav vì đây là điều hướng -->
+            <ul> <!-- ul vì danh sách menu không cần thứ tự -->
+                <li><a href="#">Trang chủ</a></li>
+                <li><a href="#">Sản phẩm</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <nav aria-label="breadcrumb">
+        <ol> <!-- ol vì breadcrumb có thứ tự -->
+            <li><a href="#">Trang chủ</a></li>
+            <li><a href="#">Điện thoại</a></li>
+            <li>iPhone 16</li> <!-- mục hiện tại không cần link -->
+        </ol>
+    </nav>
+
+    <main> <!-- main chứa nội dung chính của trang -->
+        
+        <section id="product-intro"> <!-- section vì đây là 1 khối nội dung riêng -->
+            
+            <figure> <!-- figure dùng để chứa hình ảnh có liên quan -->
+                <img src="anh1.jpg" alt="Ảnh chính"> <!-- img để hiển thị ảnh -->
+                <img src="anh2.jpg" alt="Ảnh góc cạnh">
+                <img src="anh3.jpg" alt="Ảnh mặt sau">
+                <img src="anh4.jpg" alt="Ảnh hộp">
+                <img src="anh5.jpg" alt="Ảnh cầm trên tay">
+            </figure>
+
+            <article> <!-- article vì thông tin sản phẩm là nội dung độc lập -->
+                <h2>Tên Sản Phẩm iPhone 16</h2> <!-- h2 là tiêu đề phụ -->
+                <p>Giá: 25.000.000đ</p> <!-- p dùng cho đoạn văn -->
+                <p>Đánh giá: 5 sao</p>
+                <p>Mô tả ngắn về sản phẩm...</p>
+            </article>
+
+        </section>
+
+        <section id="specifications">
+            <h3>Thông số kỹ thuật</h3>
+            <table border="1"> <!-- table để hiển thị dữ liệu dạng bảng -->
+                <tr>
+                    <th>Màn hình</th> <!-- th là tiêu đề (in đậm) -->
+                    <td>6.1 inch</td> <!-- td là dữ liệu -->
+                </tr>
+                <tr>
+                    <th>Chip</th>
+                    <td>A18 Bionic</td>
+                </tr>
+            </table>
+        </section>
+
+        <section id="reviews">
+            <h3>Đánh giá từ khách hàng</h3>
+            <article>
+                <p><strong>Nguyễn Văn A:</strong> Máy rất đẹp!</p> <!-- strong để tô đen tên -->
+            </article>
+        </section>
+
+    </main>
+
+    <aside> <!-- aside vì đây là nội dung phụ (sp liên quan) -->
+        <h3>Sản phẩm tương tự</h3>
+        <ul>
+            <li>iPhone 15</li>
+            <li>iPhone 14</li>
+        </ul>
+    </aside>
+
+    <footer> <!-- footer cho phần cuối trang -->
+        <p>&copy; 2026 Shop Công Nghệ</p>
+    </footer>
+
+</body>
+</html>
+```
 
 
 
