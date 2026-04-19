@@ -73,3 +73,23 @@ Text C Text D
 - Bảng có cấu trúc cứng nhắc, rất khó để tự động co giãn hoặc nhảy dòng linh hoạt trên màn hình điện thoại so với CSS Grid/Flexbox.
 - Thẻ `<table>` chỉ dành cho dữ liệu bảng (so sánh, thống kê). Dùng làm layout khiến Google Bot không hiểu được cấu trúc nội dung.
 - Tốc độ load sẽ chậm vì trình duyệt phải đọc xong toàn bộ mã nguồn của thẻ bảng mới có thể tính toán và hiển thị giao diện
+
+# PHẦN B - THỰC HÀNH CODE:
+
+## Câu B3:
+Danh sách các lỗi:
+Lỗi 1: Dòng 1 — Khai báo DOCTYPE thiếu từ khóa html — Cách sửa: Đổi thành <!DOCTYPE html>
+Lỗi 2: Dòng 2 — Thẻ <html> thiếu thuộc tính ngôn ngữ lang — Cách sửa: Đổi thành <html lang="vi">
+Lỗi 3: Dòng 4 — Thẻ <title> chưa được đóng — Cách sửa: Đổi thành <title>Trang web</title>
+Lỗi 4: Dòng 5 — Giá trị bảng mã utf8 thiếu dấu gạch ngang và viết sai chuẩn — Cách sửa: Đổi thành <meta charset="UTF-8">
+Lỗi 5: Dòng 8 — Thẻ đóng của <h1> viết sai (thiếu dấu gạch chéo đúng vị trí) — Cách sửa: Đổi thành <h1>Welcome to ShopTLU</h1>
+Lỗi 6: Dòng 12 — Thẻ đóng của <a> viết sai — Cách sửa: Đổi thành <a href="home">Trang chủ</a>
+Lỗi 7: Dòng 21 — Giá trị của thuộc tính src không nằm trong dấu ngoặc kép — Cách sửa: Đổi thành <img src="iphone.jpg">
+Lỗi 8: Dòng 21 — Thẻ <img> thiếu thuộc tính alt mô tả ảnh (lỗi Semantic) — Cách sửa: Thêm alt="iPhone 16 Pro" vào thẻ img.
+Lỗi 9: Dòng 23 — Các thẻ đóng </p></b> bị viết sai thứ tự lồng nhau — Cách sửa: Đổi thành <b>25.990.000đ</b></p>
+Lỗi 10: Dòng 40 — Sử dụng thẻ <main> lần thứ hai (Thẻ <main> là duy nhất trong một trang) — Cách sửa: Đổi thẻ <main> này thành <aside> nếu là nội dung phụ.
+Lỗi 11: Dòng 44 — Thẻ <footer> chưa được đóng — Cách sửa: Thêm thẻ </footer> vào cuối đoạn nội dung chân trang.
+
+
+
+
