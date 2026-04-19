@@ -199,13 +199,24 @@ Lỗi 11: Dòng 44 — Thẻ `<footer>` chưa được đóng — Cách sửa: T
         </ul>
     </aside>
 
-    <footer> <!-- footer cho phần cuối trang -->
+    <footer> 
         <p>&copy; 2026 Shop Công Nghệ</p>
     </footer>
 
 </body>
 </html>
 ```
+
+## Câu C2:
+Quan điểm “dùng `<div>` cho mọi thứ rồi thêm class là đủ” nghe có vẻ tiện, nhưng về lâu dài lại gây nhiều bất lợi.
+
+Thứ nhất là SEO (tối ưu công cụ tìm kiếm). Các thẻ semantic như `<header>`, `<nav>`, `<main>`, `<article>`, `<section> `giúp công cụ tìm kiếm hiểu rõ cấu trúc và nội dung trang. Nếu tất cả đều là `<div>`, bot phải “đoán” ý nghĩa, dẫn đến việc index kém chính xác hơn. Một trang có cấu trúc rõ ràng thường được đánh giá cao hơn về mức độ liên quan và chất lượng nội dung.
+
+Thứ hai là Accessibility (khả năng truy cập). Người dùng sử dụng screen reader (trình đọc màn hình) phụ thuộc vào các thẻ semantic để điều hướng. Ví dụ, họ có thể nhảy nhanh tới `<nav>` hoặc `<main>`. Nếu chỉ dùng `<div>`, trải nghiệm này gần như bị mất, khiến website khó dùng với người khiếm thị.
+
+Ví dụ: khi bạn dùng `<nav aria-label="breadcrumb">` kết hợp `<ol>` cho breadcrumb, screen reader sẽ thông báo đây là “navigation” và danh sách có thứ tự, giúp người dùng hiểu ngay họ đang ở đâu trong hệ thống. Nếu chỉ dùng` <div>` + CSS, thông tin này không được truyền tải.
+
+Tuy vậy, `<div>` vẫn rất cần thiết. Nó phù hợp khi bạn chỉ cần group các phần tử để styling hoặc layout, ví dụ chia grid, flexbox, hoặc bọc nhiều thành phần không mang ý nghĩa nội dung cụ thể.
 
 
 
