@@ -23,3 +23,32 @@ Liệt kê 10 input types khác nhau:
 10. type="range" → Thanh trượt chọn giá trị trong khoảng định sẵn → Dùng làm Bộ lọc khoảng giá.
 
 ## Câu A2: (nguồn tham chiếu:`07_forms_interactive.md`)
+Trường hợp 1: `<input type="text" required value="">`
+
+- Dự đoán: Trình duyệt hiện thông báo: "Vui lòng điền vào trường này."
+
+- Tại sao: Thuộc tính required đánh dấu đây là trường bắt buộc. Khi giá trị (value) trống, trình duyệt sẽ ngăn không cho gửi form.
+
+Trường hợp 2: `<input type="email" value="abc">`
+
+- Dự đoán: Trình duyệt hiện thông báo: "Vui lòng bao gồm một dấu '@' trong địa chỉ email. 'abc' còn thiếu một dấu '@'."
+
+- Tại sao: type="email" yêu cầu dữ liệu phải tuân thủ định dạng email. Chuỗi "abc" vi phạm quy tắc này vì không có ký tự @.
+
+Trường hợp 3: `<input type="number" min="1" max="10" value="15">`
+
+- Dự đoán: Trình duyệt hiện thông báo: "Giá trị phải nhỏ hơn hoặc bằng 10."
+
+- Tại sao: Thuộc tính max="10" thiết lập giới hạn trên cho con số được nhập. Giá trị 15 vượt quá giới hạn này nên không hợp lệ.
+
+Trường hợp 4: `<input type="text" pattern="[0-9]{10}" value="abc123">`
+
+- Dự đoán: Trình duyệt hiện thông báo: "Vui lòng khớp với định dạng được yêu cầu."
+
+- Tại sao: pattern="[0-9]{10}" là một biểu thức chính quy yêu cầu đúng 10 chữ số (từ 0-9). Chuỗi "abc123" chứa ký tự chữ và sai độ dài nên bị chặn.
+
+Trường hợp 5: `<input type="password" minlength="8" value="123">`
+
+- Dự đoán: Trình duyệt hiện thông báo: "Vui lòng kéo dài văn bản này thành 8 ký tự trở lên (hiện bạn đang sử dụng 3 ký tự)."
+
+- Tại sao: minlength="8" quy định số lượng ký tự tối thiểu phải nhập. Vì "123" chỉ có 3 ký tự, nó chưa đủ độ dài an toàn theo thiết lập.
