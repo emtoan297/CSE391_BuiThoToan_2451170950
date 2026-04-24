@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Đặt Hàng</title>
+</head>
+<body>
+    <h1>Form Đặt Hàng</h1>
+
+    <!-- PHẦN 1: GIỎ HÀNG -->
+    <h2>Giỏ Hàng</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Sản Phẩm</th>
+                <th>Đơn Giá</th>
+                <th>Số Lượng</th>
+                <th>Thành Tiền</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Laptop Dell</td>
+                <td>15,000,000</td>
+                <td>1</td>
+                <td>15,000,000</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Chuột Logitech</td>
+                <td>500,000</td>
+                <td>2</td>
+                <td>1,000,000</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Bàn Phím Cơ</td>
+                <td>1,200,000</td>
+                <td>1</td>
+                <td>1,200,000</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Monitor 27 inch</td>
+                <td>3,500,000</td>
+                <td>2</td>
+                <td>7,000,000</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4"><strong>Tổng Cộng:</strong></td>
+                <td><strong>24,200,000</strong></td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <!-- PHẦN 2: FORM THANH TOÁN -->
+    <h2>Thông Tin Thanh Toán</h2>
+    <form>
+        <!-- Phương thức thanh toán -->
+        <fieldset>
+            <legend>Phương Thức Thanh Toán</legend>
+            <label>
+                <input type="radio" name="payment" value="cod"> COD (Thanh toán khi nhận hàng)
+            </label><br>
+            <label>
+                <input type="radio" name="payment" value="transfer"> Chuyển Khoản Ngân Hàng
+            </label><br>
+            <label>
+                <input type="radio" name="payment" value="wallet"> Ví Điện Tử (MoMo, Zalopay)
+            </label>
+        </fieldset>
+
+        <br>
+
+        <!-- Mã giảm giá -->
+        <label for="discount">Mã Giảm Giá:</label><br>
+        <input type="text" id="discount" name="discount" placeholder="VD: SALE2026" pattern="SALE\d{4}">
+        <br><br>
+
+        <!-- Ghi chú -->
+        <label for="note">Ghi Chú (tùy chọn):</label><br>
+        <textarea id="note" name="note" rows="4" cols="50" placeholder="Nhập ghi chú của bạn..."></textarea>
+        <br><br>
+
+        <!-- PHẦN 3: THÔNG TIN GIAO HÀNG -->
+        <h2>Thông Tin Giao Hàng</h2>
+
+        <!-- Ngày giao hàng -->
+        <label for="delivery_date">Ngày Giao Hàng Mong Muốn:</label><br>
+        <input type="date" id="delivery_date" name="delivery_date" required>
+        <br><br>
+
+        <!-- Khung giờ -->
+        <label for="time_slot">Khung Giờ Giao Hàng:</label><br>
+        <select id="time_slot" name="time_slot" required>
+            <option value="">-- Chọn khung giờ --</option>
+            <option value="morning">Sáng (8h - 12h)</option>
+            <option value="afternoon">Chiều (14h - 18h)</option>
+            <option value="evening">Tối (18h - 21h)</option>
+        </select>
+        <br><br>
+
+        <!-- Thời gian giao hàng (range) -->
+        <label for="delivery_days">Thời Gian Giao Hàng (số ngày):</label><br>
+        <input type="range" id="delivery_days" name="delivery_days" min="1" max="7" step="1" value="3">
+        <output for="delivery_days">3</output> ngày
+        <br><br>
+
+        <!-- BONUS: Datalist cho tìm kiếm sản phẩm -->
+        <label for="product_search">Tìm Kiếm Sản Phẩm (bonus):</label><br>
+        <input type="text" id="product_search" name="product_search" list="products" placeholder="Nhập tên sản phẩm...">
+        <datalist id="products">
+            <option value="Laptop Dell">
+            <option value="Chuột Logitech">
+            <option value="Bàn Phím Cơ">
+            <option value="Monitor 27 inch">
+            <option value="Headphone Sony">
+            <option value="Webcam Logitech">
+        </datalist>
+        <br><br>
+
+        <!-- BONUS: Output hiển thị tổng tiền -->
+        <p>
+            <strong>Tổng Tiền Cần Thanh Toán:</strong>
+            <output id="total_price">24,200,000</output> VNĐ (tĩnh)
+        </p>
+
+        <!-- BONUS: Progress bar cho điểm tích lũy -->
+        <label for="loyalty_points">Điểm Tích Lũy (bonus):</label><br>
+        <progress id="loyalty_points" value="1250" max="2000"></progress>
+        <small>1250 / 2000 điểm</small>
+        <br><br>
+
+        <!-- Submit button -->
+        <button type="submit" aria-label="Xác nhận đặt hàng">Xác Nhận Đặt Hàng</button>
+        <button type="reset">Reset</button>
+    </form>
+
+</body>
+</html>
