@@ -115,5 +115,13 @@ Trường hợp 5: `<input type="password" minlength="8" value="123">`
 </figure>
 ```
 
+# PHẦN B - THỰC HÀNH CODE
+
+## Bài B1: Giải thích trong answers.md tại sao HTML không thể validate confirm password
+- HTML chỉ kiểm tra từng ô độc lập: Các thuộc tính như required, pattern, hay minlength chỉ kiểm tra nội dung bên trong chính ô input đó có hợp lệ với quy tắc đặt ra hay không.
+- Thiếu logic so sánh: HTML không có khả năng "nhìn" sang ô input khác để so sánh giá trị. Việc kiểm tra xem ô "Xác nhận mật khẩu" có khớp 100% với ô "Mật khẩu" hay không đòi hỏi một phép toán logic .
+- Giải pháp: Để thực hiện việc này, chúng ta bắt buộc phải dùng JavaScript (để so sánh giá trị khi người dùng gõ) hoặc kiểm tra ở phía Server (Backend) sau khi form được gửi đi.
+
+
 
 
