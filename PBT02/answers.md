@@ -121,7 +121,94 @@ Trường hợp 5: `<input type="password" minlength="8" value="123">`
 - HTML chỉ kiểm tra từng ô độc lập: Các thuộc tính như required, pattern, hay minlength chỉ kiểm tra nội dung bên trong chính ô input đó có hợp lệ với quy tắc đặt ra hay không.
 - Thiếu logic so sánh: HTML không có khả năng "nhìn" sang ô input khác để so sánh giá trị. Việc kiểm tra xem ô "Xác nhận mật khẩu" có khớp 100% với ô "Mật khẩu" hay không đòi hỏi một phép toán logic .
 - Giải pháp: Để thực hiện việc này, chúng ta bắt buộc phải dùng JavaScript (để so sánh giá trị khi người dùng gõ) hoặc kiểm tra ở phía Server (Backend) sau khi form được gửi đi.
+# PHẦN C — PHÂN TÍCH & SUY LUẬN 
+## Câu C1:
+```
+Lỗi 1: Dòng 2 — Input "Tên" không có <label>, id, name và required
+Sửa: <label for="name">Tên:</label> <input type="text" id="name" name="name" required>
 
+Lỗi 2: Dòng 4 — Input email không có <label>, id, name và required
+Sửa: <label for="email">Email:</label> <input type="email" id="email" name="email" required>
 
+Lỗi 3: Dòng 6 — Input password (mật khẩu) không có <label>, id, name và required
+Sửa: <label for="password">Mật khẩu:</label> <input type="password" id="password" name="password" required>
+
+Lỗi 4: Dòng 7 — Input password (nhập lại) không có <label>, id, name và required
+Sửa: <label for="confirm_password">Nhập lại mật khẩu:</label> <input type="password" id="confirm_password" name="confirm_password" required>
+
+Lỗi 5: Dòng 9 — Input phone không có <label>, type="tel", id, name
+Sửa: <label for="phone">Phone:</label> <input type="tel" id="phone" name="phone" value="0901234567">
+
+Lỗi 6: Dòng 11-14 — Select không có <label>, id, name
+Sửa: <label for="city">Thành phố:</label> <select id="city" name="city">...
+
+Lỗi 7: Dòng 16-18 — Label không có checkbox input, không liên kết
+Sửa: <label><input type="checkbox" id="agree" name="agree" required> Tôi đồng ý điều khoản</label>
+```
+
+## Câu C2:
+**Form đăng ký cho ngân hàng số:**
+```html
+<form>
+    <h2>Đăng Ký Tài Khoản Ngân Hàng Số</h2>
+
+    
+    <label for="cmnd">CMND/CCCD (12 chữ số):</label><br>
+    <input type="text" id="cmnd" name="cmnd" pattern="[0-9]{12}" placeholder="Nhập 12 chữ số" required>
+    <br><br>
+
+    
+    <label for="account">Số Tài Khoản (10-15 chữ số):</label><br>
+    <input type="text" id="account" name="account" pattern="[0-9]{10,15}" placeholder="Nhập 10-15 chữ số" required>
+    <br><br>
+
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" placeholder="Nhập email của bạn" required>
+    <br><br>
+
+    <label for="pin">PIN (6 chữ số):</label><br>
+    <input type="password" id="pin" name="pin" pattern="[0-9]{6}" placeholder="Nhập 6 chữ số" required>
+    <br><br>
+
+    <button type="submit">Đăng Ký</button>
+    <button type="reset">Xóa</button>
+</form>
+```
+**Câu hỏi**
+1. Viết pattern regex cho CMND/CCCD và Số tài khoản:
+
+- **CMND/CCCD** (đúng 12 chữ số):
+  ```html
+  <input type="text" pattern="[0-9]{12}" placeholder="Nhập 12 chữ số">
+- **Số tài khoản** (đúng 10-15 chữ số):
+```html
+  <input type="text" pattern="[0-9]{10,15}" placeholder="Nhập 10-15 chữ số">
+  ```
+
+2. HTML5 validation có đủ an toàn cho ứng dụng ngân hàng không? Tại sao?
+- KHÔNG đủ an toàn! Lý do:
+- HTML5 validation chỉ kiểm tra định dạng dữ liệu (format), không kiểm tra logic nghiệp vụ (business logic)
+- Ví dụ: Pattern [0-9]{12} chỉ kiểm tra "12 chữ số", nhưng không kiểm tra CMND có thật hay không
+- Người dùng có thể vô hiệu hóa HTML5 validation bằng DevTools → gửi dữ liệu sai lên server
+- Ngân hàng phải validate bắt buộc ở Backend để đảm bảo an toàn
+
+3. Liệt kê 3 loại validation mà HTML5 KHÔNG THỂ làm được (phải dùng JavaScript):
+
+- Validation 1: So sánh giữa 2 ô input
+
+    - Ví dụ: Kiểm tra "Mật khẩu" và "Nhập lại mật khẩu" có khớp không?
+    - HTML5 không thể → Phải dùng JavaScript để so sánh giá trị
+- Validation 2: Kiểm tra logic nghiệp vụ (Business Logic)
+
+    - Ví dụ: Kiểm tra CMND có hợp lệ theo thuật toán checksum, hoặc CMND chưa bị khóa
+    - HTML5 chỉ kiểm tra format → Phải dùng JavaScript gọi API backend
+- Validation 3: Kiểm tra dữ liệu trùng lặp (Duplicate Check)
+
+    - Ví dụ: Kiểm tra email/số tài khoản có bị trùng trong database không?
+    - HTML5 không có quyền truy cập database → Phải dùng JavaScript/AJAX để gửi lên server
+4. Nêu 2 rủi ro bảo mật nếu chỉ validate Frontend mà không validate Backend:
+- Dữ liệu rác/độc hại làm hỏng Database: Kẻ tấn công có thể dùng các công cụ như Postman để gửi thẳng dữ liệu "xấu" (ví dụ: chứa mã độc SQL Injection) lên Server mà không cần qua giao diện Web. Nếu Backend không kiểm tra lại, hệ thống có thể bị sập hoặc lộ dữ liệu.
+
+- Gian lận và sai lệch logic nghiệp vụ: Nếu chỉ kiểm tra số tiền rút ở Frontend, một lập trình viên có thể sửa code F12 để gửi yêu cầu rút 1 tỷ đồng dù trong tài khoản chỉ có 1 triệu. Nếu Backend không xác thực lại quyền hạn và số dư, ngân hàng sẽ bị thất thoát tài sản.
 
 
