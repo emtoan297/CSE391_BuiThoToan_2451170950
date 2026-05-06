@@ -48,3 +48,51 @@ h1 { color: #2563eb; font-size: 32px; }
 7. a[href="/"]                  → Chọn: <a href="/" class="active">Home</a>
 8. .top-bar.dark h1              → Chọn: <h1>ShopTLU</h1>
 ```
+
+## Câu A3:
+```css
+/* Trường hợp 1: content-box (mặc định) */
+.box-1 {
+    width: 400px;
+    padding: 20px;
+    border: 5px solid black;
+    margin: 10px;
+}
+→ Chiều rộng hiển thị = 400 + 20*2 + 5*2 = 450px
+→ Không gian chiếm trên trang = 450 + 10*2 = 470px
+
+/* Trường hợp 2: border-box */
+.box-2 {
+    box-sizing: border-box;
+    width: 400px;
+    padding: 20px;
+    border: 5px solid black;
+    margin: 10px;
+}
+→ Chiều rộng hiển thị = 400px (bao gồm cả padding và border)
+→ Kích thước content thực tế = 400 - 20*2 - 5*2 = 350px
+→ Không gian chiếm trên trang = 400 + 10*2 = 420px
+
+/* Trường hợp 3: Margin collapse */
+.box-a { margin-bottom: 25px; }
+.box-b { margin-top: 40px; }
+→ Khoảng cách giữa box-a và box-b = 40px
+→ Giải thích: Khi hai phần tử có margin đối diện nhau, trình duyệt sẽ áp dụng quy tắc "margin collapse" và chỉ sử dụng margin lớn hơn trong hai margin đó. Trong trường hợp này, margin-top của box-b (40px) lớn hơn margin-bottom của box-a (25px), nên khoảng cách giữa hai box sẽ là 40px thay vì 65px nếu cộng lại.
+```
+**Nâng cao:** Nếu `.box-a` có `margin-bottom: -10px` và `.box-b` có `margin-top: 40px`, khoảng cách = 40 - 10 = 30px. Giải thích: Trong trường hợp này, margin-bottom âm của box-a sẽ "kéo" box-b lên gần hơn, làm giảm khoảng cách giữa hai box xuống còn 30px.
+## Câu A4:
+1. Tính specificity score (a, b, c) cho mỗi rule
+
+| Quy tắc | Selector | ID (a) | Class (b) | Tag (c) | Tổng điểm (Score) |
+| :--- | :--- | :---: | :---: | :---: | :--- |
+| **Rule A** | `p` | 0 | 0 | 1 | 1 |
+| **Rule B** | `.price` | 0 | 1 | 0 | 10 |
+| **Rule C** | `#main-price` | 1 | 0 | 0 | 100 |
+| **Rule D** | `p.price` | 0 | 1 | 1 | 11 |
+
+2. Element sẽ có màu đỏ.Giải thích:Trình duyệt so sánh từ trái sang phải. Rule C có 1 ID, trong khi tất cả các rule còn lại đều có 0 ID. Vì cột ID "nặng đô" nhất nên Rule C thắng tuyệt đối, bất kể các rule khác có bao nhiêu Class hay Tag đi nữa.
+
+3. Nếu thêm `<p class="price" id="main-price" style="color: orange;">`, element có màu cam
+
+4. Nếu Rule A thêm `!important`, element có màu đỏ. Tại điểm này, Rule A có độ ưu tiên cao nhất do có `!important`, bất kể Rule C có ID hay không. Tuy nhiên, nếu cả Rule A và Rule C đều có `!important`, thì Rule C sẽ thắng vì nó có ID, trong khi Rule A chỉ là một tag selector.
+
