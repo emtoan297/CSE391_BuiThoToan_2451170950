@@ -1,0 +1,28 @@
+
+* { color: gray; }
+
+
+p { color: silver; }
+
+
+.text { color: blue; }
+
+
+.text.highlight { color: green; }
+
+
+[id="demo"].text { color: orange; }
+
+
+#demo { color: purple; }
+
+
+p#demo { color: brown; }
+
+
+#demo.text { color: red; }
+
+
+#demo.text.highlight { color: teal; }
+
+p#demo.text.highlight { color: black; } /* [1,2,1] */

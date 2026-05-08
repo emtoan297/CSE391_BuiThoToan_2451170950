@@ -97,7 +97,7 @@ h1 { color: #2563eb; font-size: 32px; }
 4. Nếu Rule A thêm `!important`, element có màu đỏ. Tại điểm này, Rule A có độ ưu tiên cao nhất do có `!important`, bất kể Rule C có ID hay không. Tuy nhiên, nếu cả Rule A và Rule C đều có `!important`, thì Rule C sẽ thắng vì nó có ID, trong khi Rule A chỉ là một tag selector.
 
 ## PHẦN B — THỰC HÀNH CODE
-### Bài B2 (20đ) — Box Model Lab
+### Bài B2:
 ```
 Hộp 1 (content-box): chiều rộng thực tế = 350 px (đo từ DevTools)
 Hộp 2 (border-box): chiều rộng thực tế = 300 px (đo từ DevTools)
@@ -105,3 +105,47 @@ Giải thích sự khác biệt:
 -content-box:Trình duyệt coi width là kích thước của riêng phần nội dung. Padding và Border sẽ được cộng thêm vào ngoài width, làm hộp bị to ra so với dự tính ban đầu.
 -border-box: Trình duyệt coi width đã bao gồm cả nội dung, padding và border. Điều này giúp kích thước hộp chính xác như mong muốn mà không bị ảnh hưởng bởi padding hay border.
 ```
+### Bài B3:
+1. Liệt kê 10 rules + specificity score
+```css
+* : 0,0,0
+
+p : 0,0,1
+
+.text : 0,1,0
+
+.text.highlight : 0,2,0
+
+[id="demo"].text : 0,2,0 (Viết sau nên thắng rule 4)
+
+#demo : 1,0,0
+
+p#demo : 1,0,1
+
+#demo.text : 1,1,0
+
+#demo.text.highlight : 1,2,0
+
+p#demo.text.highlight : 1,2,1
+```
+2. Element có màu đen. Giải thích: Rule p#demo.text.highlight có điểm Specificity cao nhất (1,2,1). Trong CSS, trình duyệt sẽ chọn quy tắc có độ ưu tiên cao nhất để áp dụng, các quy tắc thấp hơn sẽ bị ghi đè (overwritten).
+4. Kết quả không đổi,nếu các rule có điểm Specificity khác nhau. Rule có điểm cao hơn luôn thắng dù nó nằm ở đầu hay cuối file.
+
+## PHẦN C — DEBUG & SUY LUẬN 
+### Câu C1:
+1. Tính chiều rộng **thực tế** của sidebar và content (content-box!)
+- Sidebar: 300 + 20 + 20 + 1 + 1 = 342px
+- Content: 660 + 30 + 30 + 1 + 1 = 722px
+2. Giải thích tại sao layout bị vỡ
+- Vì box-sizing mặc định là content-box, nên width chỉ tính phần nội dung,Padding và border vẫn được cộng vào ngoài width.
+- Tổng chiều rộng của cả 2 khối là: 342px + 722px = 1064px
+- Trong khi đó,.container của bạn chỉ rộng có 960px. Vì 1064 > 960, không gian không đủ chỗ chứa nên khối content buộc phải nhảy xuống dòng dưới.
+3. Hai cách sửa lỗi
+- Cách 1: Thay đổi box-sizing thành border-box cho cả 2 khối, để width đã bao gồm padding và border. Khi đó, chiều rộng thực tế của sidebar sẽ là 300px và content sẽ là 660px, tổng cộng là 960px, vừa khít với container.
+- Cách 2: Tính toán lại width thủ công (Nếu vẫn dùng content-box) 
+
+        Sidebar: width = 300 - 20 - 20 - 1 - 1 = 258px
+
+        Content: width = 660 - 30 - 30 - 1 - 1 = 598px
+        
+        Lúc này: 258 + 42 (phần dư) = 300px; 598 + 62 (phần dư) = 660px. Tổng = 960px .
