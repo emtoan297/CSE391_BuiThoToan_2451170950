@@ -96,3 +96,12 @@ h1 { color: #2563eb; font-size: 32px; }
 
 4. Nếu Rule A thêm `!important`, element có màu đỏ. Tại điểm này, Rule A có độ ưu tiên cao nhất do có `!important`, bất kể Rule C có ID hay không. Tuy nhiên, nếu cả Rule A và Rule C đều có `!important`, thì Rule C sẽ thắng vì nó có ID, trong khi Rule A chỉ là một tag selector.
 
+## PHẦN B — THỰC HÀNH CODE
+### Bài B2 (20đ) — Box Model Lab
+```
+Hộp 1 (content-box): chiều rộng thực tế = 350 px (đo từ DevTools)
+Hộp 2 (border-box): chiều rộng thực tế = 300 px (đo từ DevTools)
+Giải thích sự khác biệt:
+-content-box:Trình duyệt coi width là kích thước của riêng phần nội dung. Padding và Border sẽ được cộng thêm vào ngoài width, làm hộp bị to ra so với dự tính ban đầu.
+-border-box: Trình duyệt coi width đã bao gồm cả nội dung, padding và border. Điều này giúp kích thước hộp chính xác như mong muốn mà không bị ảnh hưởng bởi padding hay border.
+```

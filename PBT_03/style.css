@@ -1,0 +1,88 @@
+* { 
+    box-sizing: border-box; 
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+    padding: 25px;
+    text-align: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: #ffffff;
+    margin: 0 15px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #ffd700; 
+    text-decoration: underline;
+}
+
+nav a.active {
+    background-color: white;
+    color: #1e3c72;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+#kynang table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse; 
+    background-color: white;
+}
+
+#kynang th, #kynang td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+#kynang thead tr {
+    background-color: #1e3c72;
+    color: white;
+}
+
+#kynang tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#kynang tbody tr:hover {
+    background-color: #d1e3ff;
+}
+
+footer {
+    background-color: #222;
+    color: #bbb;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+main {
+    padding: 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+article figure img {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}

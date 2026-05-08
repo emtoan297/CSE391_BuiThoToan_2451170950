@@ -1,0 +1,68 @@
+/* Thiết lập chung */
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.lab-section {
+    margin-bottom: 50px;
+}
+
+/* --- STYLE PHẦN 1 --- */
+.demo-box {
+    width: 300px;
+    padding: 20px;
+    border: 5px solid #333;
+    background-color: #ffd700;
+    margin: 10px;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+}
+
+.content-box {
+    box-sizing: content-box; /* Mặc định */
+}
+
+.border-box {
+    box-sizing: border-box;
+}
+
+/* --- STYLE PHẦN 2 --- */
+.container {
+    width: 1000px;
+    border: 2px solid red; /* Khung đỏ để dễ quan sát giới hạn 1000px */
+    margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap; /* Cho phép cột Ads nhảy xuống khi bị tràn */
+}
+
+.sidebar {
+    width: 250px;
+    padding: 15px;
+    background-color: #d1ecf1;
+}
+
+.content {
+    width: 500px;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+}
+
+.ads {
+    width: 250px;
+    padding: 15px;
+    background-color: #d1ecf1;
+}
+
+/* Kích hoạt border-box cho trường hợp A */
+.use-border-box div {
+    box-sizing: border-box;
+}
+
+/* Ép content-box cho trường hợp B (Để chứng minh layout bị vỡ) */
+.no-border-box div {
+    box-sizing: content-box;
+}
