@@ -149,3 +149,38 @@ p#demo.text.highlight : 1,2,1
         Content: width = 660 - 30 - 30 - 1 - 1 = 598px
         
         Lúc này: 258 + 42 (phần dư) = 300px; 598 + 62 (phần dư) = 660px. Tổng = 960px .
+
+### Câu C2:
+1."Sản phẩm A" (h2) có `font-size` = 20px và `color` = green. Giải thích:
+
+- font-size: Có 2 rule tác động là .container (14px) và .card .title (20px). Rule .card .title trực tiếp chọn thẻ h2 và có độ ưu tiên cao hơn (0,2,0) so với việc kế thừa từ container, nên nó thắng.
+- color: Phần tử này bị tác động bởi 3 quy tắc:
+    - .card (kế thừa màu blue) - Thấp nhất.
+    - #featured .title (Specificity: 1,1,0) - Màu đỏ.
+    - .highlight (có !important) - Màu xanh lá.
+
+Kết quả: !important phá vỡ mọi thang đo Specificity thông thường, nên màu xanh lá thắng tuyệt đối.
+
+2."Mô tả sản phẩm" (p trong card featured) có `color` = blue. Giải thích:
+- Phần tử này có rule trực tiếp là .card p { color: inherit; }.
+- Từ khóa inherit buộc phần tử p phải lấy màu từ cha trực tiếp của nó là .card.
+- Mặc dù cha của nó có id="featured" (màu đỏ cho title), nhưng bản thân thẻ .card lại được khai báo color: blue.
+- Do đó, thẻ p kế thừa màu blue từ .card.
+
+3."Sản phẩm B" (h2) có `font-size` = 20px và `color` = blue. Giải thích:
+- font-size: Tương tự sản phẩm A, rule .card .title (0,2,0) chỉ định trực tiếp nên thắng các giá trị kế thừa từ body hay container.
+
+- color: * Thẻ h2 này không có ID #featured và cũng không có class .highlight.
+    - Nó chỉ có class .title (nhưng CSS không có rule riêng cho .title đơn lẻ về màu sắc).
+    - Nó nằm trong .card (đã được set color: blue). Do màu sắc (color) là thuộc tính có tính kế thừa, thẻ h2 tự động nhận màu blue từ cha.
+
+4. "Mô tả sản phẩm B" (p.highlight) có `color` = green. Giải thích:
+- Phần tử này có class .highlight.
+
+- Trong CSS, quy tắc .highlight { color: green !important; } được áp dụng.
+
+- Mặc dù nó nằm trong .card (đáng lẽ nhận màu blue), nhưng quy tắc trực tiếp có !important sẽ ghi đè lên tất cả các giá trị kế thừa hoặc chỉ định thông thường khác.
+
+
+
+ 
