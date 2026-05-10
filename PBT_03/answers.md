@@ -181,6 +181,6 @@ Kết quả: !important phá vỡ mọi thang đo Specificity thông thường, 
 
 - Mặc dù nó nằm trong .card (đáng lẽ nhận màu blue), nhưng quy tắc trực tiếp có !important sẽ ghi đè lên tất cả các giá trị kế thừa hoặc chỉ định thông thường khác.
 
-
+link videos trong google drive:https://drive.google.com/file/d/1VcVwoU7XwccwZtg1VUDdlJrZvjgb-YPP/view?usp=sharing
 
  
