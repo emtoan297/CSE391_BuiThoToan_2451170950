@@ -314,5 +314,11 @@ body { font-size: 14px; }
     }
 }
 ```
+### Bài B3 (20đ) — SCSS Refactor
+# Lệnh biên dịch SCSS sang CSS (Compile)
 
+Để biên dịch cấu trúc thư mục SCSS thành file `responsive.css`, sử dụng lệnh sau trong Terminal tại thư mục `PBT_05`:
+
+```bash
+sass scss/style.scss responsive.css
 
