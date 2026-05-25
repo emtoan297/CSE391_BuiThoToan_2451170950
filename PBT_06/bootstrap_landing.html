@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page - ShopTLU</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">ShopTLU</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#">Trang chủ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Sản phẩm</a></li>
+                </ul>
+                <form class="d-flex me-2">
+                    <input class="form-control me-2" type="search" placeholder="Tìm kiếm">
+                    <button class="btn btn-outline-success" type="submit">Tìm</button>
+                </form>
+                <a href="#" class="btn btn-outline-primary position-relative">
+                    🛒 Giỏ hàng
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://placehold.co/1200x400?text=Săn+Sale+Mùa+Hè" class="d-block w-100" alt="Slide 1">
+                <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
+                    <h5>Khuyến mãi cực khủng</h5>
+                    <p>Giảm giá lên đến 50% cho tất cả mặt hàng điện tử.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://placehold.co/1200x400?text=Sản+Phẩm+Mới" class="d-block w-100" alt="Slide 2">
+                <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
+                    <h5>Bộ sưu tập 2024</h5>
+                    <p>Đón đầu xu hướng công nghệ mới nhất.</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+
+    <div class="container my-5">
+        <h2 class="text-center mb-4">Sản phẩm nổi bật</h2>
+        <div class="row g-4">
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100 position-relative shadow-sm">
+                    <span class="badge bg-danger position-absolute top-0 end-0 m-2">Sale</span>
+                    <img src="https://placehold.co/300x200" class="card-img-top" alt="iPhone 15">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">iPhone 15 Pro</h5>
+                        <p class="card-text text-muted small">Chip A17 Pro mạnh mẽ, khung Titan sang trọng.</p>
+                        <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#quickViewModal">Xem nhanh</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3"><div class="card h-100 shadow-sm"><img src="https://placehold.co/300x200" class="card-img-top"><div class="card-body text-center"><h5 class="card-title">MacBook Air M3</h5><p class="card-text text-muted small">Mỏng nhẹ, hiệu năng vượt trội.</p><button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#quickViewModal">Xem nhanh</button></div></div></div>
+            <div class="col-12 col-md-6 col-lg-3"><div class="card h-100 position-relative shadow-sm"><span class="badge bg-danger position-absolute top-0 end-0 m-2">Sale</span><img src="https://placehold.co/300x200" class="card-img-top"><div class="card-body text-center"><h5 class="card-title">iPad Pro OLED</h5><p class="card-text text-muted small">Màn hình sống động nhất.</p><button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#quickViewModal">Xem nhanh</button></div></div></div>
+            <div class="col-12 col-md-6 col-lg-3"><div class="card h-100 shadow-sm"><img src="https://placehold.co/300x200" class="card-img-top"><div class="card-body text-center"><h5 class="card-title">Watch Ultra 2</h5><p class="card-text text-muted small">Dành cho những cuộc thám hiểm.</p><button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#quickViewModal">Xem nhanh</button></div></div></div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row text-center text-md-start">
+                <div class="col-md-3 mb-3">
+                    <h5 class="text-primary">ShopTLU</h5>
+                    <p class="small">Hệ thống bán lẻ công nghệ hàng đầu Việt Nam.</p>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <h5>Dịch vụ</h5>
+                    <ul class="list-unstyled small text-secondary">
+                        <li>Bảo hành chính hãng</li>
+                        <li>Giao hàng nhanh 2h</li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <h5>Chính sách</h5>
+                    <ul class="list-unstyled small text-secondary">
+                        <li>Đổi trả trong 30 ngày</li>
+                        <li>Bảo mật thông tin</li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <h5>Liên hệ</h5>
+                    <p class="small text-secondary">Hotline: 1800 1234<br>Email: support@tlu.vn</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal fade" id="quickViewModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Chi tiết sản phẩm</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <img src="https://placehold.co/400x300" class="img-fluid rounded mb-3">
+                    <h4>Thông tin sản phẩm</h4>
+                    <p>Mô tả chi tiết về cấu hình, thông số kỹ thuật và các chính sách ưu đãi kèm theo của sản phẩm.</p>
+                    <h4 class="text-danger">Giá: Liên hệ</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
