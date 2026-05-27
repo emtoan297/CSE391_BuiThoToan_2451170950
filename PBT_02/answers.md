@@ -211,5 +211,5 @@ Sửa: <label><input type="checkbox" id="agree" name="agree" required> Tôi đ�
 
 - Gian lận và sai lệch logic nghiệp vụ: Nếu chỉ kiểm tra số tiền rút ở Frontend, một lập trình viên có thể sửa code F12 để gửi yêu cầu rút 1 tỷ đồng dù trong tài khoản chỉ có 1 triệu. Nếu Backend không xác thực lại quyền hạn và số dư, ngân hàng sẽ bị thất thoát tài sản.
 
-link videos trong google drive: https://drive.google.com/file/d/1tNTaXkDxm_ge9dtSOQkk_4qSOHd_hLO4/view?usp=sharing
+
 
